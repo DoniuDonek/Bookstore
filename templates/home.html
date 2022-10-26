@@ -5,6 +5,11 @@
 
 {% block content %}
 <h1>This is our home page.</h1>
+{% for image in test %}
+    <a class="btn btn-dark" href="/download-img/{{ image.pk }}/">{{ image.name }}</a>{{ image }}<br>
+
+    {% comment %} <a class="nav-link" href="{% url 'account_login' %}">Log In</a> <!== {% endcomment %}
+{% endfor %}<br>
 <img class="bookcover" src="{% static 'images/dfp.png' %}">
     {% if user.is_authenticated %}
         <p>Hi {{ user.email }}!</p>
