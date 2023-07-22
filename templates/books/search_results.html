@@ -5,10 +5,12 @@
 {% block content %}
   <h1>Search Results</h1>
   {% for book in book_list %}
-  <div>
-    <h3><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h3>
-    <p>Author: {{ book.author }}</p>
-    <p>Price: $ {{ book.price }}</p>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h3 class="card-title"><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h3>
+      <p class="card-text">Author: {{ book.author }}</p>
+      <p class="card-text">Price: $ {{ book.price }}</p>
+    </div>
   </div>
   {% endfor %}
 {% endblock content %}

@@ -2,5 +2,18 @@
 {% block title %}About{% endblock title %}
 
 {% block content %}
-<h1>About Page</h1>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">About Us</h5>
+        <p class="card-text">Our bookstore is dedicated to providing the best books for our customers...</p>
+        <h5 class="card-title">Recently added books</h5>
+        <ul>
+            {% for book in recent_books %}
+                <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
+            {% empty %}
+                <li>No books recently added.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endblock content %}

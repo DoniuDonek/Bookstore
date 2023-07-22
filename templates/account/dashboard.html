@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<p>Username: {{ user.username }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Date joined: {{ user.date_joined }}</p>
+
+<p>Status: {{ user.status }}</p>
+
+<h2>Your Books</h2>
+{% for book in books %}
+    <p>{{ book.title }}</p>
+{% empty %}
+    <p>You have not posted any books yet.</p>
+{% endfor %}
+
+<h2>Your Reviews</h2>
+{% for review in reviews %}
+    <p>{{ review.review }}</p> 
+{% empty %}
+    <p>You have not written any reviews yet.</p>
+{% endfor %}
+{% endblock %}

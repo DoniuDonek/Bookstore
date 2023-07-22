@@ -4,14 +4,18 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<h1>This is our home page.</h1>
-<img class="bookcover" src="{% static 'images/dfp.png' %}">
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to our Bookstore</h1>
+    <img class="rounded-circle img-thumbnail" src="{% static 'images/dfp.png' %}">
     {% if user.is_authenticated %}
-        <p>Hi {{ user.email }}!</p>
-        <p><a href="{% url 'account_logout' %}">Log Out</a></p>
+        <p class="lead">Hi {{ user.email }}!</p>
+        <p><a class="btn btn-danger btn-lg" href="{% url 'account_logout' %}" role="button">Log Out</a></p>
     {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'account_login' %}">Log In</a> |
-        <a href="{% url 'account_signup' %}">Sign Up</a>
+        <p class="lead">You are not logged in</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a class="btn btn-primary btn-lg" href="{% url 'account_login' %}" role="button">Log In</a>
+            <a class="btn btn-success btn-lg" href="{% url 'account_signup' %}" role="button">Sign Up</a>
+        </div>
     {% endif %}
+</div>
 {% endblock content %}

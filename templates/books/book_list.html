@@ -4,8 +4,13 @@
 
 {% block content %}
     {% for book in book_list %}
-        <div>
-            <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
+        <div class="card mb-3">
+            <div class="card-body">
+                {% if book.cover %}
+                <img src="{{ book.cover.url }}" style="width: 100px; height: 100px;">
+                {% endif %}
+                <h2 class="card-title"><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
+            </div>
         </div>
     {% endfor %}
 {% endblock content %}
